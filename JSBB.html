@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS</title>
+    <style>
+        body {
+            background-color: #4c9f60;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        main {
+            background-color: white;
+            height: 400px;
+        }
+
+        img {
+            margin: 15px;
+            width: 250px;
+            height: 250px;
+            transition: 0.25s;
+        }
+
+        img:hover {
+            transform: scale(2, 2);
+            transition: 0.25s;
+        }
+
+        button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            left: 380px;
+            top: 30px;
+            width: 100px;
+            height: 70px;
+            color: black;
+            background-color: #4c9f60;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <img id="img1" src="Walter looksmaxxing.jpg">
+        <img id="img2" src="Walter JR looksmaxxing.jpg">
+        <img id="img3" src="Gustavo looksmaxxing.jpg">
+        <button onclick="changeImages()">ИГРАТЬ</button>
+        <p id="result"></p>
+    </main>
+
+    <script>
+
+        function changeImages() {
+            var images = ['Walter looksmaxxing.jpg', 'Walter JR looksmaxxing.jpg', 'Gustavo looksmaxxing.jpg'];
+            var randomImages = [];
+            var result = document.getElementById('result');
+
+            for (var i = 0; i < 3; i++) {
+                var randomImage = images[Math.floor(Math.random() * images.length)];
+                randomImages.push(randomImage);
+            }
+
+            document.getElementById('img1').src = randomImages[0];
+            document.getElementById('img2').src = randomImages[1];
+            document.getElementById('img3').src = randomImages[2];
+
+            if (randomImages[0] === randomImages[1] && randomImages[1] === randomImages[2]) {
+                result.innerHTML = 'MOGG HIGH DIF';
+            }
+            else {
+                result.innerHTML = 'BYE BYE';
+            }
+        }
+
+    </script>
+</body>
+
+</html>
