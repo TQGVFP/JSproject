@@ -43,15 +43,31 @@
             background-color: #4c9f60;
             border-radius: 5px;
         }
+
+        .bg-color {
+            background-color: red;
+        }
+
+        .hd {
+            text-decoration: none;
+            color: black;
+            display: flex;
+            justify-content: end;
+            
+        }
     </style>
 </head>
 
-<body>
+<body class="bg.color">
+    <header>
+        <a class="hd" href="BB.html"><strong>Back to links</strong></a>
+    </header>
+
     <main>
         <img id="img1" src="Walter looksmaxxing.jpg">
         <img id="img2" src="Walter JR looksmaxxing.jpg">
         <img id="img3" src="Gustavo looksmaxxing.jpg">
-        <button onclick="changeImages()">ИГРАТЬ</button>
+        <button id="but" onclick="changeImages()">ИГРАТЬ</button>
         <p id="result"></p>
     </main>
 
@@ -73,10 +89,22 @@
 
             if (randomImages[0] === randomImages[1] && randomImages[1] === randomImages[2]) {
                 result.innerHTML = 'MOGG HIGH DIF';
+                const whenButtonClicked = () => {
+                    const body = document.querySelector("body");
+                    body.style.backgroundColor = "green";
+                }
+                document.getElementById(`but`).addEventListener("click", whenButtonClicked);
             }
             else {
                 result.innerHTML = 'BYE BYE';
+                const whenButtonClicked = () => {
+                    const body = document.querySelector("body");
+                    body.classList.remove("red");
+                    body.style.backgroundColor = "red";
+                }
+                document.getElementById(`but`).addEventListener("click", whenButtonClicked);
             }
+
         }
 
     </script>
